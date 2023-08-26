@@ -1,6 +1,8 @@
-class Deposit{
-  constructor(valor,data){
+
+//classe deposito
+module.exports = class Deposit {
+  constructor(valor){
     this.valor = valor
-    this.data = data
-  }
+    this.data = Date()
+  } 
 }
