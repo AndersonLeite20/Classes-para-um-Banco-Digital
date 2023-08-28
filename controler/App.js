@@ -1,32 +1,29 @@
-const Acount = require("./Acount");
-const Deposit = require("./Deposit");
-const Installment = require("./Installmente");
-const Loan = require("./Loan");
-const Transfer = require("./Transfer");
-const User = require("./User.js");
-
-class App {
+const Loan = require('./Loan.js');
+const User = require('./User.js');
+const Deposit = require('./Deposit.js')
+module.exports = class App{
   static #listaDeUsuarios = []
-  static criarUsuario(email){
-    const retorno = this.#listaDeUsuarios.find(email)
-    if(!retorno === true){
-      return this.#listaDeUsuarios.push(email)
-    }else{
-      return `Falha email ja cadastrado`
+ 
+  static criarUsuario(usuario){
+    for(let i = 0;i <= this.#listaDeUsuarios.length; i++){
+      if(this.#listaDeUsuarios[i]?.email === usuario.email){
+        return 'Email já cadastrado!'
+      }
+    }
+    this.#listaDeUsuarios.unshift(usuario)
+    return this.#listaDeUsuarios
+  }
+  static encontrausuario(usuario){
+    for(let i = 0;i <= this.#listaDeUsuarios.length;i++){
+      if(this.#listaDeUsuarios[i]?.email === usuario.email){
+        return `NOME: ${this.#listaDeUsuarios[i].nome}\nEMAIL: ${this.#listaDeUsuarios[i].email}\nCONTA: ${this.#listaDeUsuarios[i].conta}` 
+      }else{
+        return 'usuario não cadastrado!'
+      }
     }
   }
-  static encontrausuario(email){
-    const retorno = this.#listaDeUsuarios.find(email)
-    if(retorno === true){
-      const i = this.#listaDeUsuarios.indexOf(email)
-      console.log(`${this.#listaDeUsuarios[i]}`)
-    }else{
-      console.log(`Falha usuario não encontrado`)
-    }
-  }
-  static deposito(valor){
+  static depositos(valor){
     const deposit = new Deposit(valor)
-    return deposit
   }
   static transferencia(valor,emailTitul,emailSecund){
     const transferencia = new Transfer(valor,emailTitul,emailSecund)
@@ -37,10 +34,6 @@ class App {
     return emprestimo
   }
   auterartaxa(taxa){
-    const taxaNova = new Loan(taxa)
-    return taxaNova
+    Loan.mudarTaxa = taxa
   }
 };
-const user = new User('Anderson Leite','als@200.com',2314)
-const app = new App(user)
-console.log(app)

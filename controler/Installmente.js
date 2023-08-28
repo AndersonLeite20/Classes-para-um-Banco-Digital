@@ -1,12 +1,12 @@
 
 
 module.exports = class Installment{
-  constructor(valorNparcelas){
-    this.valorDaparcela = valorNparcelas.valorEnprestimo
-    this.numeroDeParcelas = valorNparcelas.parcelas
+  constructor(valor,parcela){
+    this.parcelas = enprestimo.numeroDeParcelas 
+    this.valor = enprestimo.valorDaparcela
     this.situacao = ''
   }
-  msituacaoParcela(){
+  situacaoParcela(){
     if(this.numeroDeParcelas === 0){
       return this.situacao = 'PAGA'
     }else{

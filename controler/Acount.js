@@ -1,8 +1,9 @@
-const Loan = require("./Loan")
 
-module.exports = class Acount extends Loan{
+
+module.exports = class Acount extends Deposit{
   #saldo
   constructor(nome,email,conta){
+    this.#saldo = 0
     this.nome = nome
     this.email = email
     this.conta = conta
@@ -10,12 +11,12 @@ module.exports = class Acount extends Loan{
     this.tdsEmprestimos = []
     this.tdsTransferecias = []
   }
-  deposito(valor){
-    return this.#saldo += valor
+  novoDeposito(valor){
+    this.#saldo += valor
   }
   emprestimo(valor){
     this.#saldo += valor
-    this.tdsEmprestimos.unshift(Loan)
+    this.tdsEmprestimos.unshift(Loan.valor)
   }
   transferencia(destino,valor){
     if(destino == Transfer.usuarioQueEnviou){

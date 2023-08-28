@@ -1,11 +1,11 @@
-const Deposit = require("./Deposit")
+const Installment = require("./Installmente")
 
-module.exports = class Loan extends Deposit{
+module.exports = class Loan extends Installment{
   static #taxaDeJuros = 0
-  constructor(valorNumeroParcela){
+  constructor(valor,parcela){
     //instâncias de Installments
-    this.valorEnprestimo =  valorNumeroParcela.valorEnprestimo
-    this.parcelas = valorNumeroParcela.numeroParcelas
+    super(valor,parcela)
+    this.data = Date()
   }
   //ler taxa de juros
   static get lerTaxa(){
@@ -18,7 +18,7 @@ module.exports = class Loan extends Deposit{
   }
   //caucular enprestimo
   calcularEnprestimo(){
-    this.valorEnprestimo = this.valorEnprestimo / this.parcelas
-    return this.valorEnprestimo
+    this.valor = this.valor * this.parcelas
+    return this.valor
   }
 }

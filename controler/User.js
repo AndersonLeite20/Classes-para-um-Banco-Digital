@@ -1,7 +1,7 @@
 module.exports = class User{
-  constructor(nome,email,conta){
-    this.nome = nome
+  constructor(email,nome,conta){
     this.email = email
+    this.nome = nome
     this.conta = conta
   }
 }
