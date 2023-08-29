@@ -1,5 +1,7 @@
-const Deposit = require("./Deposit.js");
-const App = require("./App.js");
+const Deposit = require("./controler/Deposit.js");
+const App = require("./controler/App.js");
+const Acount = require("./controler/Acount.js");
+const { mudarTaxa } = require("./controler/Loan.js");
 /*const Acount = require("./Acount.js");
 const Installment = require("./Installmente.js");
 const Loan = require("./Loan.js");
@@ -23,6 +25,15 @@ const usuario3 = {
 }
 const depos = new Deposit()
 const app = new App()
+const conta = new Acount(usuario2)
 App.criarUsuario(usuario1)
-console.log(App.encontrausuario(usuario1))
-console.log(App.criarUsuario(usuario3))
+App.encontrausuario(usuario1)
+//Novo deposito
+conta.novoDeposito(12)
+conta.novoDeposito(45)
+//Transferencia
+//App.transferencia(150,'alsand@gmail.com','aaaa@bb.gmailm')
+
+
+
+

@@ -1,7 +1,11 @@
+const Loan = require('./Loan.js')
 
-
-module.exports = class Acount extends Deposit{
+module.exports = class Acount{
   #saldo
+  static depoosRealizado
+  static tdsEmprestimos
+  static transferencia
+  
   constructor(nome,email,conta){
     this.#saldo = 0
     this.nome = nome
@@ -12,11 +16,12 @@ module.exports = class Acount extends Deposit{
     this.tdsTransferecias = []
   }
   novoDeposito(valor){
-    this.#saldo += valor
+   return  this.#saldo += valor
   }
-  emprestimo(valor){
-    this.#saldo += valor
-    this.tdsEmprestimos.unshift(Loan.valor)
+  emprestimo(valor,parcela){
+    this.#saldo -= valor
+    this.tdsEmprestimos.unshift(Loan.valor,Loan.parcela)
+    return this.#saldo
   }
   transferencia(destino,valor){
     if(destino == Transfer.usuarioQueEnviou){

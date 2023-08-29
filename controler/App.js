@@ -24,6 +24,7 @@ module.exports = class App{
   }
   static depositos(valor){
     const deposit = new Deposit(valor)
+    return deposit
   }
   static transferencia(valor,emailTitul,emailSecund){
     const transferencia = new Transfer(valor,emailTitul,emailSecund)

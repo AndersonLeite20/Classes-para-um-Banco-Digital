@@ -18,7 +18,7 @@ module.exports = class Loan extends Installment{
   }
   //caucular enprestimo
   calcularEnprestimo(){
-    this.valor = this.valor * this.parcelas
+    this.valor *= this.parcelas
     return this.valor
   }
 }

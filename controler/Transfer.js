@@ -1,7 +1,7 @@
 
 //trasferencias
 module.exports = class Transfer{
-  constructor(usuarioQueEnviou,usuarioQueREcebeu,valor){
+  constructor(valor,usuarioQueEnviou,usuarioQueREcebeu){
     this.usuarioQueEnviou = usuarioQueEnviou
     this.usuarioQueREcebeu = usuarioQueREcebeu
     this.valor = valor
